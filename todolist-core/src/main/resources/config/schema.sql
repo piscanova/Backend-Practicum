@@ -1,19 +1,19 @@
-CREATE TABLE user (
-  id int IDENTITY NOT NULL PRIMARY KEY,
+-- DROP TABLE IF EXISTS User;
+CREATE TABLE IF NOT EXISTS User (
+  id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
   name varchar(32) DEFAULT NULL,
   email varchar(32) NOT NULL,
-  password varchar(32) DEFAULT NULL
+  password varchar(32) DEFAULT NULL,
+  UNIQUE KEY emailUniqueKey (`email`)
 );
 
-ALTER TABLE user ADD CONSTRAINT unique_email UNIQUE (email);
-
-CREATE TABLE todo (
-  id int IDENTITY NOT NULL PRIMARY KEY,
+-- DROP TABLE IF EXISTS Todo;
+CREATE TABLE IF NOT EXISTS Todo (
+  id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
   userId int NOT NULL,
   title varchar(512) DEFAULT NULL,
   done boolean DEFAULT FALSE NOT NULL,
   priority tinyint NOT NULL,
-  dueDate date DEFAULT NULL
+  dueDate date DEFAULT NULL,
+  FOREIGN KEY(userId) REFERENCES User(id)
 );
-
-alter table todo add constraint user_fk foreign key (userId) references user(id);

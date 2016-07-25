@@ -12,7 +12,7 @@
                     <p>
                     <h4>Todolist MVC is a web-based task manager which allows you to:</h4>
                     <ul>
-                        <li>Save and organize your todo list</li>
+                        <li>Save organize your todo list</li>
                         <li>Search easily your todo list</li>
                         <li>Sort and filter your todo list</li>
                         <li>Export and report your todo list</li>

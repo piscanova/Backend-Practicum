@@ -10,10 +10,10 @@ import static org.hsqldb.lib.tar.TarHeaderField.name;
  */
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "getStateDayCount", query = "SELECT g FROM GeoStat g WHERE g.state = :p_state AND g.date = :p_date"),
-        @NamedQuery(name = "getCountryDayCount", query = "SELECT g FROM GeoStat g WHERE g.country = :p_country AND g.date = :p_date"),
-        @NamedQuery(name = "getStateTotalCount", query = "SELECT g FROM GeoStat g WHERE g.state = :p_state"),
-        @NamedQuery(name = "getCountryTotalCount", query = )
+//        @NamedQuery(name = "getStateDayCount", query = "SELECT g FROM GeoStat g WHERE g.state = :p_state AND g.date = :p_date"),
+//        @NamedQuery(name = "getCountryDayCount", query = "SELECT g FROM GeoStat g WHERE g.country = :p_country AND g.date = :p_date"),
+//        @NamedQuery(name = "getStateTotalCount", query = "SELECT g FROM GeoStat g WHERE g.state = :p_state"),
+//        @NamedQuery(name = "getCountryTotalCount", query = )
 })
 public class GeoBean {
     @Id

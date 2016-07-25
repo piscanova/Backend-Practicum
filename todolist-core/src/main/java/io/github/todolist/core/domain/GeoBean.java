@@ -5,15 +5,12 @@ import java.util.Date;
 
 import static org.hsqldb.lib.tar.TarHeaderField.name;
 
-/**
- * Created by thanksgiving on 7/25/16.
- */
 @Entity
 @NamedQueries({
         @NamedQuery(name = "getStateDayCount", query = "SELECT g FROM GeoStat g WHERE g.state = :p_state AND g.date = :p_date"),
         @NamedQuery(name = "getCountryDayCount", query = "SELECT g FROM GeoStat g WHERE g.country = :p_country AND g.date = :p_date"),
         @NamedQuery(name = "getStateTotalCount", query = "SELECT g FROM GeoStat g WHERE g.state = :p_state"),
-        @NamedQuery(name = "getCountryTotalCount", query = )
+        @NamedQuery(name = "getCountryTotalCount", query = "SELECT g FROM GeoStat g WHERE g.country = :p_country AND g.date = :p_date")
 })
 public class GeoBean {
     @Id

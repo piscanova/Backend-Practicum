@@ -8,7 +8,7 @@ import java.util.Date;
  */
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "getDayCountByFileType", query = "SELECT t")
+
 })
 public class FiletypeBean {
     @Id

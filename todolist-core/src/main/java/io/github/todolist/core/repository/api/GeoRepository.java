@@ -1,6 +1,6 @@
 package io.github.todolist.core.repository.api;
 
-import io.github.todolist.core.domain.GeoBean;
+import io.github.todolist.core.domain.GeoStat;
 
 import java.util.Date;
 
@@ -8,7 +8,7 @@ import java.util.Date;
  * Created by thanksgiving on 7/25/16.
  */
 public interface GeoRepository {
-    GeoBean getGeoBean(final long id);
+    GeoStat getGeoBean(final long id);
 
     /**
      * getGeobeanByCountryDate.
@@ -16,7 +16,7 @@ public interface GeoRepository {
      * @param date
      * @return
      */
-    GeoBean getGeobeanByCountryDate(final String country, final Date date);
+    GeoStat getGeobeanByCountryDate(final String country, final Date date);
 
     /**
      * getGeobeanByStateDate.
@@ -24,19 +24,19 @@ public interface GeoRepository {
      * @param date
      * @return
      */
-    GeoBean getGeobeanByStateDate(final String state, final Date date);
+    GeoStat getGeobeanByStateDate(final String state, final Date date);
 
     /**
      * getGeobeanByCountry.
      * @param country
      * @return
      */
-    GeoBean getGeobeanByCountry(final String country);
+    GeoStat getGeobeanByCountry(final String country);
 
     /**
      * getGeobeanByState.
      * @param state
      * @return
      */
-    GeoBean getGeobeanByState(final String state);
+    GeoStat getGeobeanByState(final String state);
 }

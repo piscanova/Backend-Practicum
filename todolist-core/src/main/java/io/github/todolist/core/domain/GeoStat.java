@@ -1,6 +1,7 @@
 package io.github.todolist.core.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 import static org.hsqldb.lib.tar.TarHeaderField.name;
@@ -12,7 +13,7 @@ import static org.hsqldb.lib.tar.TarHeaderField.name;
         @NamedQuery(name = "getStateTotalCount", query = "SELECT g FROM GeoStat g WHERE g.state = :p_state"),
         @NamedQuery(name = "getCountryTotalCount", query = "SELECT g FROM GeoStat g WHERE g.country = :p_country AND g.date = :p_date")
 })
-public class GeoBean {
+public class GeoStat implements Serializable {
     @Id
     @GeneratedValue
     private long id;
@@ -24,7 +25,7 @@ public class GeoBean {
     private String stateTotalCount;
     private String countryTotalCount;
 
-    public GeoBean(String country, String state, Date date, String stateDayCount, String coutryDayCount, String stateTotalCount, String countryTotalCount) {
+    public GeoStat(String country, String state, Date date, String stateDayCount, String coutryDayCount, String stateTotalCount, String countryTotalCount) {
         this.country = country;
         this.state = state;
         this.date = date;

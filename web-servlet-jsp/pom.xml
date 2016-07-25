@@ -6,15 +6,15 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>todolist-web-servlet-jsp</artifactId>
+    <artifactId>web-servlet-jsp</artifactId>
     <packaging>war</packaging>
-    <name>todolist-web-servlet-jsp Maven Webapp</name>
+    <name>web-servlet-jsp</name>
 
     <dependencies>
 
         <dependency>
             <groupId>io.github.benas</groupId>
-            <artifactId>todolist-web-common</artifactId>
+            <artifactId>web-common</artifactId>
             <exclusions>
                 <exclusion>
                     <groupId>javax</groupId>

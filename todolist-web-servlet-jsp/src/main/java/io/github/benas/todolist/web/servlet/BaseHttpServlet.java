@@ -24,6 +24,8 @@
 
 package io.github.benas.todolist.web.servlet;
 
+import org.json.JSONObject;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -84,7 +86,10 @@ public abstract class BaseHttpServlet extends HttpServlet {
             System.out.println("forward to " + nextPage);
             d.forward(request, response);
         } else if (nextPage.endsWith(".json")) {
-            response.getWriter().write(nextPage);
+            nextPage = nextPage.substring(0, nextPage.length() - 5);
+            JSONObject jsonObject = new JSONObject(nextPage);
+            response.setContentType("application/json");
+            response.getWriter().write(jsonObject.toString());
         } else {
             String path = request.getContextPath() + nextPage;
             System.out.println("SendRedirect to " + path);

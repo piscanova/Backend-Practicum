@@ -16,6 +16,7 @@ public class GeoMapUseCaseServlet extends BaseUseCaseServlet {
     protected String performDoGet(HttpServletRequest request, HttpServletResponse response) {
         System.out.println("Enter map serlvet");
         JSONObject jsonObject = getGeoStatService().getAllCountriesCounts();
+        // add .json to parse as string
         String res = jsonObject.toString() + ".json";
         return res;
     }

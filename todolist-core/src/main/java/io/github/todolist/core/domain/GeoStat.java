@@ -25,6 +25,9 @@ public class GeoStat implements Serializable {
     private long stateTotalCount;
     private long countryTotalCount;
     private String countryCode;
+    public GeoStat() {
+
+    }
 
     public GeoStat(String country, String state, Date date, long stateDayCount, long countryDayCount, long stateTotalCount, long countryTotalCount, String countryCode) {
         this.country = country;

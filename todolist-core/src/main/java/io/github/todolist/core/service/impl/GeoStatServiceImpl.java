@@ -28,7 +28,6 @@ public class GeoStatServiceImpl implements GeoStatService {
 
     public JSONObject getAllCountriesCounts() {
         JSONObject jsonObject = new JSONObject();
-        System.out.println("split country code array");
         countryCodes = countryCode.split(",");
         int n = countryCodes.length;
         long[] counts = new long[n];
@@ -44,5 +43,4 @@ public class GeoStatServiceImpl implements GeoStatService {
         }
         return jsonObject;
     }
-
 }

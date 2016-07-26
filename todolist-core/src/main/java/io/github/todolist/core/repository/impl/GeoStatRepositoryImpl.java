@@ -5,6 +5,7 @@ import io.github.todolist.core.repository.api.GeoStatRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.Date;
@@ -26,23 +27,23 @@ public class GeoStatRepositoryImpl implements GeoStatRepository {
         TypedQuery<GeoStat> query = entityManager.createNamedQuery("getCountryDayCount", GeoStat.class);
         query.setParameter("p_country", country);
         query.setParameter("p_date", date);
-        GeoStat res = query.getSingleResult();
-        return (res != null) ? res : null;
+        List<GeoStat> resultList = query.getResultList();
+        return (resultList != null && !resultList.isEmpty()) ? resultList.get(0) : null;
     }
 
     public GeoStat getGeobeanByStateAndDate(final String state, final Date date) {
         TypedQuery<GeoStat> query = entityManager.createNamedQuery("getStateDayCount", GeoStat.class);
         query.setParameter("p_state", state);
         query.setParameter("p_date", date);
-        GeoStat res = query.getSingleResult();
-        return (res != null) ? res : null;
+        List<GeoStat> resultList = query.getResultList();
+        return (resultList != null && !resultList.isEmpty()) ? resultList.get(0) : null;
     }
 
     public GeoStat getGeobeanByCountry(final String country) {
         TypedQuery<GeoStat> query = entityManager.createNamedQuery("getCountryTotalCount", GeoStat.class);
         query.setParameter("p_country", country);
-        GeoStat res = query.getSingleResult();
-        return (res != null) ? res : null;
+        List<GeoStat> resultList = query.getResultList();
+        return (resultList != null && !resultList.isEmpty()) ? resultList.get(0) : null;
     }
 
     public GeoStat getGeobeanByState(final String state) {
@@ -56,15 +57,17 @@ public class GeoStatRepositoryImpl implements GeoStatRepository {
         TypedQuery<GeoStat> query = entityManager.createNamedQuery("getCountryDayCountByCode", GeoStat.class);
         query.setParameter("p_countryCode", countryCode);
         query.setParameter("p_date", date);
-        GeoStat res = query.getSingleResult();
-        return (res != null) ? res : null;
+        List<GeoStat> resultList = query.getResultList();
+        return (resultList != null && !resultList.isEmpty()) ? resultList.get(0) : null;
     }
 
     public GeoStat getGeobeanByCountryCode(final String countryCode) {
         TypedQuery<GeoStat> query = entityManager.createNamedQuery("getCountryTotalCountByCode", GeoStat.class);
         query.setParameter("p_countryCode", countryCode);
-        GeoStat res = query.getSingleResult();
-        System.out.println("result for " + countryCode + res.getCountryTotalCount());
-        return (res != null) ? res : null;
+        System.out.println("country code: " + countryCode);
+        List<GeoStat> res = query.getResultList();
+        if (res != null && res.size() != 0)
+            System.out.println("result for " + countryCode + "is " + res.get(0).getCountryTotalCount());
+        return (res != null && res.size() != 0) ? res.get(0) : null;
     }
 }

@@ -34,7 +34,7 @@ public class GeoStatServiceImpl implements GeoStatService {
         long[] counts = new long[n];
         System.out.println("number of countries " + n);
         for (int i = 0; i < n; i++) {
-            GeoStat geoStat = geoStatRepository.getGeobeanByCountry(countryCodes[i]);
+            GeoStat geoStat = geoStatRepository.getGeobeanByCountryCode(countryCodes[i]);
             if (geoStat != null) {
                 counts[i] = geoStat.getCountryTotalCount();
             } else {

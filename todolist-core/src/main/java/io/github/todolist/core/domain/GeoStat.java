@@ -4,8 +4,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-import static org.hsqldb.lib.tar.TarHeaderField.name;
-
 @Entity
 @NamedQueries({
         @NamedQuery(name = "getStateDayCount", query = "SELECT g FROM GeoStat g WHERE g.state = :p_state AND g.date = :p_date"),
@@ -23,17 +21,17 @@ public class GeoStat implements Serializable {
     private String state;
     private Date date;
     private long stateDayCount;
-    private long coutryDayCount;
+    private long countryDayCount;
     private long stateTotalCount;
     private long countryTotalCount;
     private String countryCode;
 
-    public GeoStat(String country, String state, Date date, long stateDayCount, long coutryDayCount, long stateTotalCount, long countryTotalCount, String countryCode) {
+    public GeoStat(String country, String state, Date date, long stateDayCount, long countryDayCount, long stateTotalCount, long countryTotalCount, String countryCode) {
         this.country = country;
         this.state = state;
         this.date = date;
         this.stateDayCount = stateDayCount;
-        this.coutryDayCount = coutryDayCount;
+        this.countryDayCount = countryDayCount;
         this.stateTotalCount = stateTotalCount;
         this.countryTotalCount = countryTotalCount;
         this.countryCode = countryCode;
@@ -79,12 +77,12 @@ public class GeoStat implements Serializable {
         this.stateDayCount = stateDayCount;
     }
 
-    public long getCoutryDayCount() {
-        return coutryDayCount;
+    public long getCountryDayCount() {
+        return countryDayCount;
     }
 
-    public void setCoutryDayCount(long coutryDayCount) {
-        this.coutryDayCount = coutryDayCount;
+    public void setCountryDayCount(long countryDayCount) {
+        this.countryDayCount = countryDayCount;
     }
 
     public long getStateTotalCount() {

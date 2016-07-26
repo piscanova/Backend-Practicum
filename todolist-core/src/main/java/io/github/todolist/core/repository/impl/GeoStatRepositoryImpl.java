@@ -64,6 +64,7 @@ public class GeoStatRepositoryImpl implements GeoStatRepository {
         TypedQuery<GeoStat> query = entityManager.createNamedQuery("getCountryTotalCountByCode", GeoStat.class);
         query.setParameter("p_countryCode", countryCode);
         GeoStat res = query.getSingleResult();
+        System.out.println("result for " + countryCode + res.getCountryTotalCount());
         return (res != null) ? res : null;
     }
 }

@@ -23,6 +23,7 @@
                     <c:if test="${sessionScope.user == null}">
                     <p>
                         <a class="btn btn-primary btn-large" href="/login"> Sign in </a> or <a class="btn btn-primary btn-large" href="/register"> Sign up </a>
+                        <a class="btn btn-primary btn-large" href="/map"> Map Test </a>
                     </p>
                     </c:if>
 

@@ -21,15 +21,18 @@ public class GeoStatServiceImpl implements GeoStatService {
             "MU,MX,MD,MN,ME,MA,MZ,MM,NA,NP,NL,NZ,NI,NE,NG,NO,OM,PK,PA,PG,PY,PE,PH,PL,PT,QA,RO,RU,RW,WS," +
             "ST,SA,SN,RS,SC,SL,SG,SK,SI,SB,ZA,ES,LK,KN,LC,VC,SD,SR,SZ,SE,CH,SY,TW,TJ,TZ,TH,TL,TG,TO,TT," +
             "TN,TR,TM,UG,UA,AE,GB,US,UY,UZ,VU,VE,VN,YE,ZM,ZW";
-    private String[] countryCodes = countryCode.split(",");
+    private String[] countryCodes;
 
     @Autowired
     private GeoStatRepository geoStatRepository;
 
     public JSONObject getAllCountriesCounts() {
         JSONObject jsonObject = new JSONObject();
+        System.out.println("split country code array");
+        countryCodes = countryCode.split(",");
         int n = countryCodes.length;
         long[] counts = new long[n];
+        System.out.println("number of countries");
         for (int i = 0; i < n; i++) {
             GeoStat geoStat = geoStatRepository.getGeobeanByCountry(countryCodes[i]);
             if (geoStat != null) {

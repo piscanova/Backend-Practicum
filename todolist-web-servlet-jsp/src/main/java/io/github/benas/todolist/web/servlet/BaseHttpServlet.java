@@ -40,15 +40,13 @@ import java.util.ResourceBundle;
 
 /**
  * Base Servlet.
- * <p>
- * Delta Star Team
  */
 
 public abstract class BaseHttpServlet extends HttpServlet {
 
     private ResourceBundle resourceBundle;
     private Validator validator;
-    private List<String> customErrorList = new ArrayList<>();
+    private List<String> errorList = new ArrayList<>();
     public static final String KEY_HINT = "hint";
 
     @Override
@@ -60,7 +58,7 @@ public abstract class BaseHttpServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        customErrorList.clear();
+        errorList.clear();
         sendToNextPage(performDoGet(request, response), request, response);
 
 
@@ -70,14 +68,14 @@ public abstract class BaseHttpServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        customErrorList.clear();
+        errorList.clear();
         sendToNextPage(performDoPost(request, response), request, response);
 
     }
 
     private void sendToNextPage(String nextPage, HttpServletRequest request,
                                 HttpServletResponse response) throws IOException, ServletException {
-        request.setAttribute("customErrorList", getCustomErrorList());
+        request.setAttribute("errorList", getErrorList());
         if (nextPage == null) {
             response.sendError(HttpServletResponse.SC_NOT_FOUND,
                     request.getServletPath());
@@ -85,6 +83,8 @@ public abstract class BaseHttpServlet extends HttpServlet {
             RequestDispatcher d = request.getRequestDispatcher(nextPage);
             System.out.println("forward to " + nextPage);
             d.forward(request, response);
+        } else if (nextPage.endsWith(".json")) {
+            response.getWriter().write(nextPage);
         } else {
             String path = request.getContextPath() + nextPage;
             System.out.println("SendRedirect to " + path);
@@ -105,11 +105,11 @@ public abstract class BaseHttpServlet extends HttpServlet {
         return validator;
     }
 
-    public List<String> getCustomErrorList() {
-        return customErrorList;
+    public List<String> getErrorList() {
+        return errorList;
     }
 
     public boolean isValid() {
-        return customErrorList.size() == 0;
+        return errorList.size() == 0;
     }
 }

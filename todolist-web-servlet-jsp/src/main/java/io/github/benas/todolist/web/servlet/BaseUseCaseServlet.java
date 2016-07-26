@@ -31,7 +31,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 
-public abstract class BaseServlet extends BaseHttpServlet {
+public abstract class BaseUseCaseServlet extends BaseHttpServlet {
 
     private GeoStatService geoStatService;
 

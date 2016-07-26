@@ -62,7 +62,7 @@ public class GeoStatRepositoryImpl implements GeoStatRepository {
     }
 
     public GeoStat getGeobeanByCountryCode(final String countryCode) {
-        TypedQuery<GeoStat> query = entityManager.createNamedQuery("getCountryTotalCountByCode", GeoStat.class);
+        TypedQuery<GeoStat> query = entityManager.createNamedQuery("getCountryTotalCountByCode", GeoStat.class).setFirstResult(0);
         query.setParameter("p_countryCode", countryCode);
         System.out.println("country code: " + countryCode);
         List<GeoStat> res = query.getResultList();

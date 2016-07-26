@@ -7,24 +7,24 @@ import java.util.Date;
 /**
  * Created by thanksgiving on 7/25/16.
  */
-public interface GeoRepository {
+public interface GeoStatRepository {
     GeoStat getGeoBean(final long id);
 
     /**
-     * getGeobeanByCountryDate.
+     * getGeobeanByCountryAndDate.
      * @param country
      * @param date
      * @return
      */
-    GeoStat getGeobeanByCountryDate(final String country, final Date date);
+    GeoStat getGeobeanByCountryAndDate(final String country, final Date date);
 
     /**
-     * getGeobeanByStateDate.
+     * getGeobeanByStateAndDate.
      * @param state
      * @param date
      * @return
      */
-    GeoStat getGeobeanByStateDate(final String state, final Date date);
+    GeoStat getGeobeanByStateAndDate(final String state, final Date date);
 
     /**
      * getGeobeanByCountry.
@@ -39,4 +39,19 @@ public interface GeoRepository {
      * @return
      */
     GeoStat getGeobeanByState(final String state);
+
+    /**
+     * getGeobeanByCountryCode.
+     * @param countryCode
+     * @return
+     */
+    GeoStat getGeobeanByCountryCode(final String countryCode);
+
+    /**
+     * getGeobeanByCountryCodeAndDate.
+     * @param countryCode
+     * @param date
+     * @return
+     */
+    GeoStat getGeobeanByCountryCodeAndDate(final String countryCode, final Date date);
 }

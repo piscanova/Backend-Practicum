@@ -11,7 +11,9 @@ import static org.hsqldb.lib.tar.TarHeaderField.name;
         @NamedQuery(name = "getStateDayCount", query = "SELECT g FROM GeoStat g WHERE g.state = :p_state AND g.date = :p_date"),
         @NamedQuery(name = "getCountryDayCount", query = "SELECT g FROM GeoStat g WHERE g.country = :p_country AND g.date = :p_date"),
         @NamedQuery(name = "getStateTotalCount", query = "SELECT g FROM GeoStat g WHERE g.state = :p_state"),
-        @NamedQuery(name = "getCountryTotalCount", query = "SELECT g FROM GeoStat g WHERE g.country = :p_country AND g.date = :p_date")
+        @NamedQuery(name = "getCountryTotalCount", query = "SELECT g FROM GeoStat g WHERE g.country = :p_country AND g.date = :p_date"),
+        @NamedQuery(name = "getCountryTotalCountByCode", query = "SELECT g FROM GeoStat g WHERE g.countryCode = :p_countryCode"),
+        @NamedQuery(name = "getCountryDayCountByCode", query = "SELECT g FROM GeoStat g WHERE g.countryCode = :p_countryCode AND g.date = :p_date")
 })
 public class GeoStat implements Serializable {
     @Id
@@ -20,12 +22,13 @@ public class GeoStat implements Serializable {
     private String country;
     private String state;
     private Date date;
-    private String stateDayCount;
-    private String coutryDayCount;
-    private String stateTotalCount;
-    private String countryTotalCount;
+    private long stateDayCount;
+    private long coutryDayCount;
+    private long stateTotalCount;
+    private long countryTotalCount;
+    private String countryCode;
 
-    public GeoStat(String country, String state, Date date, String stateDayCount, String coutryDayCount, String stateTotalCount, String countryTotalCount) {
+    public GeoStat(String country, String state, Date date, long stateDayCount, long coutryDayCount, long stateTotalCount, long countryTotalCount, String countryCode) {
         this.country = country;
         this.state = state;
         this.date = date;
@@ -33,6 +36,7 @@ public class GeoStat implements Serializable {
         this.coutryDayCount = coutryDayCount;
         this.stateTotalCount = stateTotalCount;
         this.countryTotalCount = countryTotalCount;
+        this.countryCode = countryCode;
     }
 
     public long getId() {
@@ -67,35 +71,43 @@ public class GeoStat implements Serializable {
         this.date = date;
     }
 
-    public String getStateDayCount() {
+    public long getStateDayCount() {
         return stateDayCount;
     }
 
-    public void setStateDayCount(String stateDayCount) {
+    public void setStateDayCount(long stateDayCount) {
         this.stateDayCount = stateDayCount;
     }
 
-    public String getCoutryDayCount() {
+    public long getCoutryDayCount() {
         return coutryDayCount;
     }
 
-    public void setCoutryDayCount(String coutryDayCount) {
+    public void setCoutryDayCount(long coutryDayCount) {
         this.coutryDayCount = coutryDayCount;
     }
 
-    public String getStateTotalCount() {
+    public long getStateTotalCount() {
         return stateTotalCount;
     }
 
-    public void setStateTotalCount(String stateTotalCount) {
+    public void setStateTotalCount(long stateTotalCount) {
         this.stateTotalCount = stateTotalCount;
     }
 
-    public String getCountryTotalCount() {
+    public long getCountryTotalCount() {
         return countryTotalCount;
     }
 
-    public void setCountryTotalCount(String countryTotalCount) {
+    public void setCountryTotalCount(long countryTotalCount) {
         this.countryTotalCount = countryTotalCount;
+    }
+
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
     }
 }

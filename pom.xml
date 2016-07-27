@@ -20,7 +20,6 @@
     <modules>
         <module>todolist-core</module>
         <module>todolist-web-common</module>
-        <module>todolist-web-springmvc</module>
         <module>todolist-web-servlet-jsp</module>
     </modules>
     <packaging>pom</packaging>

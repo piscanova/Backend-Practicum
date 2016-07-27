@@ -21,6 +21,9 @@ public class FiletypeStat {
     private Date singleDate;
     private long dayCount;
     private long totalCount;
+    public FiletypeStat() {
+
+    }
     public FiletypeStat(String typeName, Date singleDate, long dayCount, long totalCount) {
         this.typeName = typeName;
         this.singleDate = singleDate;

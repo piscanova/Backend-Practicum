@@ -24,6 +24,7 @@
 
 package io.github.benas.todolist.web.servlet;
 
+import io.github.todolist.core.service.api.FileTypeService;
 import io.github.todolist.core.service.api.GeoStatService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
@@ -34,15 +35,20 @@ import javax.servlet.ServletException;
 public abstract class BaseUseCaseServlet extends BaseHttpServlet {
 
     private GeoStatService geoStatService;
+    private FileTypeService fileTypeService;
 
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
         super.init(servletConfig);
         ApplicationContext applicationContext = WebApplicationContextUtils.getWebApplicationContext(servletConfig.getServletContext());
         geoStatService = applicationContext.getBean(GeoStatService.class);
+        fileTypeService = applicationContext.getBean(FileTypeService.class);
     }
 
     public GeoStatService getGeoStatService() {
         return geoStatService;
+    }
+    public FileTypeService getFileTypeService() {
+        return fileTypeService;
     }
 }

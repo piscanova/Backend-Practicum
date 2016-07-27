@@ -8,6 +8,8 @@ import java.util.Date;
  */
 @Entity
 @NamedQueries({
+        @NamedQuery(name = "getDayCount", query = "SELECT g FROM FiletypeStat g WHERE g.typeName = :p_typeName AND g.singleDate = :p_singleDate"),
+        @NamedQuery(name = "getTotalCount", query = "SELECT g FROM FiletypeStat g WHERE g.typeName = :p_typeName"),
 
 })
 public class FiletypeBean {

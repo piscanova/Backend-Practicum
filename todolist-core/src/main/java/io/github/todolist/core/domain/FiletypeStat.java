@@ -12,7 +12,7 @@ import java.util.Date;
         @NamedQuery(name = "getTotalCount", query = "SELECT g FROM FiletypeStat g WHERE g.typeName = :p_typeName"),
 
 })
-public class FiletypeBean {
+public class FiletypeStat {
     @Id
     @GeneratedValue
     private int id;
@@ -21,7 +21,7 @@ public class FiletypeBean {
     private Date singleDate;
     private long dayCount;
     private long totalCount;
-    public FiletypeBean(String typeName, Date singleDate, long dayCount, long totalCount) {
+    public FiletypeStat(String typeName, Date singleDate, long dayCount, long totalCount) {
         this.typeName = typeName;
         this.singleDate = singleDate;
         this.dayCount = dayCount;

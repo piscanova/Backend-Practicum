@@ -1,5 +1,5 @@
 package io.github.todolist.core.repository.api;
-import io.github.todolist.core.domain.FiletypeBean;
+import io.github.todolist.core.domain.FiletypeStat;
 
 import java.util.Date;
 
@@ -7,11 +7,11 @@ import java.util.Date;
  * Created by Paranjay on 7/26/2016.
  */
 public interface FileTypeRepository {
-    FiletypeBean getFiletypeBean(final long id);
+    FiletypeStat getFiletypeBean(final long id);
 
-    FiletypeBean getFiletypeBeanByNameAndDate(final String filetypeName, final Date date);
+    FiletypeStat getFiletypeBeanByNameAndDate(final String filetypeName, final Date date);
 
-    FiletypeBean getFiletypeBeanByName(final String filetypeName);
+    FiletypeStat getFiletypeBeanByName(final String filetypeName);
 
 
 

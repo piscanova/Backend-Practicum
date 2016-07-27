@@ -1,10 +1,9 @@
 package io.github.todolist.core.service.impl;
-import io.github.todolist.core.domain.FiletypeBean;
+import io.github.todolist.core.domain.FiletypeStat;
 import io.github.todolist.core.repository.api.FileTypeRepository;
 import io.github.todolist.core.service.api.FileTypeService;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.propertyeditors.StringArrayPropertyEditor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,9 +28,9 @@ public class FileTypeServiceImpl implements FileTypeService {
         long[] counts = new long[n];
         System.out.println("number of file types " + n);
         for(int i = 0; i < n; i++) {
-            FiletypeBean filetypeBean = fileTypeRepository.getFiletypeBeanByName(fileTypes[i]);
-            if(filetypeBean != null) {
-                counts[i] = filetypeBean.getTotalCount();
+            FiletypeStat filetypeStat = fileTypeRepository.getFiletypeBeanByName(fileTypes[i]);
+            if(filetypeStat != null) {
+                counts[i] = filetypeStat.getTotalCount();
             } else {
                 counts[i] = 0;
             }

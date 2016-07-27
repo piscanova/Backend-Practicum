@@ -15,9 +15,11 @@
     <bean id="userRepository" class="io.github.todolist.core.repository.impl.UserRepositoryImpl"/>
     <bean id="todoRepository" class="io.github.todolist.core.repository.impl.TodoRepositoryImpl"/>
     <bean id="geoStatRepository" class="io.github.todolist.core.repository.impl.GeoStatRepositoryImpl"/>
+    <bean id="fileTypeRepositry" class="io.github.todolist.core.repository.impl.FileTypeRepositoryImpl"/>
 
     <bean id="userService" class="io.github.todolist.core.service.impl.UserServiceImpl"/>
     <bean id="todoService" class="io.github.todolist.core.service.impl.TodoServiceImpl"/>
     <bean id="geoStatService" class="io.github.todolist.core.service.impl.GeoStatServiceImpl"/>
+    <bean id="fileTypeService" class="io.github.todolist.core.service.impl.FileTypeServiceImpl"/>
 
 </beans>

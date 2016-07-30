@@ -1,9 +1,6 @@
 package io.github.todolist.core.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -20,7 +17,7 @@ import java.util.Date;
     @NamedQuery(name = "getPureByUserAgent", query = "SELECT p FROM Pure p WHERE p.user_agent = :p_user_agent"),
     @NamedQuery(name = "getPureByProtocolId", query = "SELECT p FROM Pure p WHERE p.protocol_id = :p_protocol_id"),
     @NamedQuery(name = "getPureByInfection", query = "SELECT p FROM Pure p WHERE p.infection = :p_infection"),
-    @NamedQuery(name = "getPureBySha1", query = "SELECT p FROM Pure p WHERE p.sha1 = :p_sha1")
+    @NamedQuery(name = "getPureBySha1", query = "SELECT p FROM Pure p WHERE p.sha1 = :p_sha1"),
 })
 public class Pure {
     /*
@@ -39,6 +36,8 @@ public class Pure {
 | protocol_id     | bigint(20)   | YES  | MUL | NULL    |       |
 | infection       | varchar(100) | YES  | MUL | NULL    |       |
      */
+    @Id
+    @GeneratedValue
     private long id;
     private String name;
     private String ip;

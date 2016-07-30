@@ -15,10 +15,9 @@ import java.util.Date;
     @NamedQuery(name = "getPureByFileName", query = "SELECT p FROM Pure p WHERE p.name = :p_name"),
     @NamedQuery(name = "getPureByIp", query = "SELECT p FROM Pure p WHERE p.ip = :p_ip"),
     @NamedQuery(name = "getPureByPort", query = "SELECT p FROM Pure p WHERE p.name = :p_name AND p.name = :p_name"),
-    @NamedQuery(name = "getPureBySize", query = "SELECT p FROM Pure p WHERE p.ip = :p_ip AND p.ip = :p_ip"),
     @NamedQuery(name = "getPureByDate", query = "SELECT p FROM Pure p WHERE p.created_utc = :p_created_utc"),
-    @NamedQuery(name = "getPureByUserAgent", query = "SELECT p FROM Pure p WHERE p.user_agent = :p_user_agent AND p.user_agent = :p_user_agent"),
-    @NamedQuery(name = "getPureByProtocolId", query = "SELECT p FROM Pure p WHERE p.protocol_id = :p_protocol_id AND p.protocol_id = :p_protocol_id"),
+    @NamedQuery(name = "getPureByUserAgent", query = "SELECT p FROM Pure p WHERE p.user_agent = :p_user_agent"),
+    @NamedQuery(name = "getPureByProtocolId", query = "SELECT p FROM Pure p WHERE p.protocol_id = :p_protocol_id"),
     @NamedQuery(name = "getPureByInfection", query = "SELECT p FROM Pure p WHERE p.infection = :p_infection"),
 })
 public class Pure {

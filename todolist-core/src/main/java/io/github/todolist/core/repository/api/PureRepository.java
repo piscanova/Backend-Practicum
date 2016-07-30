@@ -30,28 +30,28 @@ public interface PureRepository {
      * @param protocol_id
      * @return
      */
-    GeoStat getPureByProtocolId(final String protocol_id);
+    Pure getPureByProtocolId(final String protocol_id);
 
     /**
      * get Pure bean from table Pure by date.
      * @param created_utc
      * @return
      */
-    GeoStat getPureByDate(final String created_utc);
+    Pure getPureByDate(final String created_utc);
 
     /**
      * get Pure By User Agent from table Pure.
      * @param user_agent
      * @return
      */
-    GeoStat getPureByUserAgent(final String user_agent);
+    Pure getPureByUserAgent(final String user_agent);
 
     /**
      * get Pure by infection type from table Pure.
      * @param infection
      * @return
      */
-    GeoStat getPureByInfection(final String infection);
+    Pure getPureByInfection(final String infection);
 
     /**
      * getIp from table Pure.

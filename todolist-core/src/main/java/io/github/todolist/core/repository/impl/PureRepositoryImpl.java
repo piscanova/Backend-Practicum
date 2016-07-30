@@ -32,4 +32,26 @@ public class PureRepositoryImpl {
         List<Pure> resultList = query.getResultList();
         return (resultList != null && !resultList.isEmpty()) ? resultList.get(0) : null;
     }
+
+    public Pure getPureByDate (final String created_utc) {
+        TypedQuery<Pure> query = entityManager.createNamedQuery("getPureByIp", Pure.class);
+        query.setParameter("p_ip", created_utc);
+        List<Pure> resultList = query.getResultList();
+        return (resultList != null && !resultList.isEmpty()) ? resultList.get(0) : null;
+    }
+
+    public Pure getPureByUserAgent(final String user_agent) {
+        TypedQuery<Pure> query = entityManager.createNamedQuery("getPureByUserAgent", Pure.class);
+        query.setParameter("p_user_agent", user_agent);
+        List<Pure> resultList = query.getResultList();
+        return (resultList != null && !resultList.isEmpty()) ? resultList.get(0) : null;
+    }
+
+    public Pure getPureByInfection(final String infection) {
+        TypedQuery<Pure> query = entityManager.createNamedQuery("getPureByInfection", Pure.class);
+        query.setParameter("p_infection", infection);
+        List<Pure> resultList = query.getResultList();
+        return (resultList != null && !resultList.isEmpty()) ? resultList.get(0) : null;
+    }
+
 }

@@ -12,6 +12,7 @@ import java.util.Date;
 
 @Entity
 @NamedQueries({
+    @NamedQuery(name = "getPureById", query = "SELECT p FROM Pure p WHERE p.id = :p_id"),
     @NamedQuery(name = "getPureByFileName", query = "SELECT p FROM Pure p WHERE p.name = :p_name"),
     @NamedQuery(name = "getPureByIp", query = "SELECT p FROM Pure p WHERE p.ip = :p_ip"),
     @NamedQuery(name = "getPureByPort", query = "SELECT p FROM Pure p WHERE p.name = :p_name AND p.name = :p_name"),
@@ -19,6 +20,7 @@ import java.util.Date;
     @NamedQuery(name = "getPureByUserAgent", query = "SELECT p FROM Pure p WHERE p.user_agent = :p_user_agent"),
     @NamedQuery(name = "getPureByProtocolId", query = "SELECT p FROM Pure p WHERE p.protocol_id = :p_protocol_id"),
     @NamedQuery(name = "getPureByInfection", query = "SELECT p FROM Pure p WHERE p.infection = :p_infection"),
+    @NamedQuery(name = "getPureBySha1", query = "SELECT p FROM Pure p WHERE p.sha1 = :p_sha1")
 })
 public class Pure {
     /*

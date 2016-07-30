@@ -1,11 +1,27 @@
 package io.github.todolist.core.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import java.util.Date;
 
 /**
  * Created by Zhijie Yang on 7/25/16.
  */
-public class PureBean {
+
+@Entity
+@NamedQueries({
+    @NamedQuery(name = "getPureByFileName", query = "SELECT p FROM Pure p WHERE p.name = :p_name"),
+    @NamedQuery(name = "getPureByIp", query = "SELECT p FROM Pure p WHERE p.ip = :p_ip"),
+    @NamedQuery(name = "getPureByPort", query = "SELECT p FROM Pure p WHERE p.name = :p_name AND p.name = :p_name"),
+    @NamedQuery(name = "getPureBySize", query = "SELECT p FROM Pure p WHERE p.ip = :p_ip AND p.ip = :p_ip"),
+    @NamedQuery(name = "getPureByDate", query = "SELECT p FROM Pure p WHERE p.created_utc = :p_created_utc"),
+    @NamedQuery(name = "getPureByUserAgent", query = "SELECT p FROM Pure p WHERE p.user_agent = :p_user_agent AND p.user_agent = :p_user_agent"),
+    @NamedQuery(name = "getPureByProtocolId", query = "SELECT p FROM Pure p WHERE p.protocol_id = :p_protocol_id AND p.protocol_id = :p_protocol_id"),
+    @NamedQuery(name = "getPureByInfection", query = "SELECT p FROM Pure p WHERE p.infection = :p_infection"),
+})
+public class Pure {
     /*
 | id              | bigint(20)   | NO   | PRI | NULL    |       |
 | name            | varchar(260) | YES  |     | NULL    |       |

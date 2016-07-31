@@ -32,7 +32,11 @@
     <script type="text/javascript" src="/assets/js/plugins/maps/jvectormap/map_files/world.js"></script>
     <script type="text/javascript" src="/assets/js/plugins/maps/jvectormap/map_files/countries/usa.js"></script>
     <script type="text/javascript" src="/assets/js/plugins/maps/jvectormap/map_files/countries/germany.js"></script>
-    <script type="text/javascript" src="/assets/data/malware_map/total_number.js"></script>
+    <%--<script type="text/javascript" src="/assets/data/malware_map/total_number.js"></script>--%>
+	<script>
+		var malwareData = JSON.parse('${requestScope.malwareMap}');
+//		alert(malwareData["HK"]);
+	</script>
     <script type="text/javascript" src="/assets/js/maps/vector/vector_maps_demo.js"></script>
     <!--/Map JS files-->
 

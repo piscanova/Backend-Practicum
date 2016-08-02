@@ -32,11 +32,10 @@
     <script type="text/javascript" src="/assets/js/plugins/maps/jvectormap/map_files/world.js"></script>
     <script type="text/javascript" src="/assets/js/plugins/maps/jvectormap/map_files/countries/usa.js"></script>
     <script type="text/javascript" src="/assets/js/plugins/maps/jvectormap/map_files/countries/germany.js"></script>
-    <%--<script type="text/javascript" src="/assets/data/malware_map/total_number.js"></script>--%>
-	<script>
-		var malwareData = JSON.parse('${requestScope.malwareMap}');
-//		alert(malwareData["HK"]);
-	</script>
+    <script type="text/javascript" src="/assets/data/malware_map/total_number.js"></script>
+	<%--<script>--%>
+		<%--var malwareData = JSON.parse('${requestScope.malwareMap}');--%>
+<%--	</script>--%>
     <script type="text/javascript" src="/assets/js/maps/vector/vector_maps_demo.js"></script>
     <!--/Map JS files-->
 
@@ -175,7 +174,7 @@
 		<!-- Page header content -->
 		<div class="page-header-content">
 			<div class="page-title">
-				<h4>Dashboard <small>Good afternoon , Victor!</small></h4>
+				<h4>Dashboard <small>Welcome, Victor!</small></h4>
 			</div>
 
 		</div>
@@ -288,7 +287,7 @@
 						<!-- Basic pie chart -->
 						<div class="panel panel-flat">
 							<div class="panel-heading">
-								<h5 class="panel-title">Procotol</h5>
+								<h5 class="panel-title">Infections</h5>
 							</div>
 
 							<div class="panel-body">

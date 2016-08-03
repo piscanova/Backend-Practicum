@@ -1,6 +1,7 @@
 package io.github.benas.todolist.web.servlet.geostat;
 
 import io.github.benas.todolist.web.servlet.BaseUseCaseServlet;
+import io.github.benas.todolist.web.util.Views;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -17,8 +18,8 @@ public class LiveFeedUseCase extends BaseUseCaseServlet {
     protected String performDoGet(HttpServletRequest request, HttpServletResponse response) {
         JSONArray jsonArray = getLiveFeedService().getAllLiveFeed();
         // add .json to parse as string
-        String res = jsonArray.toString() + ".json";
-        return res;
+        request.setAttribute("feed", jsonArray);
+        return Views.FEED_PAGE;
     }
 
 }

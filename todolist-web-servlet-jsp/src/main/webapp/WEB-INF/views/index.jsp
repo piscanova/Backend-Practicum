@@ -72,6 +72,12 @@
 </head>
 
 <body class="navbar-bottom">
+<div><p>
+	<a class="btn btn-primary btn-large" href="/login"> Sign in </a> or <a class="btn btn-primary btn-large" href="/register"> Sign up </a>
+	<a class="btn btn-primary btn-large" href="/map"> Map Test </a>
+	<a class="btn btn-primary btn-large" href="/filetype"> File Type Test </a>
+	<a class="btn btn-primary btn-large" href="/liveFeed"> Live Feed Test </a>
+</p></div>
 
 	<!-- Page header -->
 	<div class="page-header page-header-inverse bg-indigo">

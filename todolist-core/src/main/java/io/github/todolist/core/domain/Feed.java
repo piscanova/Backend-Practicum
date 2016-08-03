@@ -17,7 +17,7 @@ import javax.persistence.*;
         @NamedQuery(name = "getLiveFeedByPort", query = "SELECT p FROM Feed p WHERE p.port = :p_port"),
 })
 
-public class LiveFeedBean {
+public class Feed {
    /* +-----------+--------------+------+-----+---------+----------------+
             | Field     | Type         | Null | Key | Default | Extra          |
             +-----------+--------------+------+-----+---------+----------------+

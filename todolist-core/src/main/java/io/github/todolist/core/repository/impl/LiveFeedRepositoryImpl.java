@@ -1,6 +1,6 @@
 package io.github.todolist.core.repository.impl;
 
-import io.github.todolist.core.domain.LiveFeedBean;
+import io.github.todolist.core.domain.Feed;
 import io.github.todolist.core.repository.api.LiveFeedRepository;
 import org.springframework.stereotype.Repository;
 
@@ -17,54 +17,54 @@ public class LiveFeedRepositoryImpl implements LiveFeedRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public LiveFeedBean getLiveFeedBean(final long id) {
-        return entityManager.find(LiveFeedBean.class, id);
+    public Feed getLiveFeedBean(final long id) {
+        return entityManager.find(Feed.class, id);
     }
 
-    public LiveFeedBean getLiveFeedBeanByIp(final String ip) {
-        TypedQuery<LiveFeedBean> query = entityManager.createNamedQuery("getLiveFeedByIp", LiveFeedBean.class);
+    public Feed getLiveFeedBeanByIp(final String ip) {
+        TypedQuery<Feed> query = entityManager.createNamedQuery("getLiveFeedByIp", Feed.class);
         query.setParameter("p_ip", ip);
-        List<LiveFeedBean> resultList = query.getResultList();
+        List<Feed> resultList = query.getResultList();
         return (resultList != null && !resultList.isEmpty()) ? resultList.get(0) : null;
 
     }
 
-    public LiveFeedBean getLiveFeedBeanByCountry(final String country) {
-        TypedQuery<LiveFeedBean> query = entityManager.createNamedQuery("getLiveFeedByCountry", LiveFeedBean.class);
+    public Feed getLiveFeedBeanByCountry(final String country) {
+        TypedQuery<Feed> query = entityManager.createNamedQuery("getLiveFeedByCountry", Feed.class);
         query.setParameter("p_country", country);
-        List<LiveFeedBean> resultList = query.getResultList();
+        List<Feed> resultList = query.getResultList();
         return (resultList != null && !resultList.isEmpty()) ? resultList.get(0) : null;
 
     }
 
-    public LiveFeedBean getLiveFeedBeanByState(final String state) {
-        TypedQuery<LiveFeedBean> query = entityManager.createNamedQuery("getLiveFeedByState", LiveFeedBean.class);
+    public Feed getLiveFeedBeanByState(final String state) {
+        TypedQuery<Feed> query = entityManager.createNamedQuery("getLiveFeedByState", Feed.class);
         query.setParameter("p_state", state);
-        List<LiveFeedBean> resultList = query.getResultList();
+        List<Feed> resultList = query.getResultList();
         return (resultList != null && !resultList.isEmpty()) ? resultList.get(0) : null;
 
     }
 
-    public LiveFeedBean getLiveFeedBeanByFileName(final String fileName) {
-        TypedQuery<LiveFeedBean> query = entityManager.createNamedQuery("getLiveFeedByFileName", LiveFeedBean.class);
+    public Feed getLiveFeedBeanByFileName(final String fileName) {
+        TypedQuery<Feed> query = entityManager.createNamedQuery("getLiveFeedByFileName", Feed.class);
         query.setParameter("p_fileName", fileName);
-        List<LiveFeedBean> resultList = query.getResultList();
+        List<Feed> resultList = query.getResultList();
         return (resultList != null && !resultList.isEmpty()) ? resultList.get(0) : null;
 
     }
 
-    public LiveFeedBean getLiveFeedBeanByInfection(final String infection) {
-        TypedQuery<LiveFeedBean> query = entityManager.createNamedQuery("getLiveFeedByInfection", LiveFeedBean.class);
+    public Feed getLiveFeedBeanByInfection(final String infection) {
+        TypedQuery<Feed> query = entityManager.createNamedQuery("getLiveFeedByInfection", Feed.class);
         query.setParameter("p_infection", infection);
-        List<LiveFeedBean> resultList = query.getResultList();
+        List<Feed> resultList = query.getResultList();
         return (resultList != null && !resultList.isEmpty()) ? resultList.get(0) : null;
 
     }
 
-    public LiveFeedBean getLiveFeedBeanByPort(final int port) {
-        TypedQuery<LiveFeedBean> query = entityManager.createNamedQuery("getLiveFeedByPort", LiveFeedBean.class);
+    public Feed getLiveFeedBeanByPort(final int port) {
+        TypedQuery<Feed> query = entityManager.createNamedQuery("getLiveFeedByPort", Feed.class);
         query.setParameter("p_port", port);
-        List<LiveFeedBean> resultList = query.getResultList();
+        List<Feed> resultList = query.getResultList();
         return (resultList != null && !resultList.isEmpty()) ? resultList.get(0) : null;
 
     }

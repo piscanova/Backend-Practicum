@@ -22,7 +22,7 @@ public class FileTypeServiceImpl implements FileTypeService {
     @Autowired
     private FileTypeRepository fileTypeRepository;
 
-    public JSONArray getAllFiletypeCounts() {
+    public JSONObject getAllFiletypeCounts() {
         JSONObject jsonObject = new JSONObject();
         fileTypes = fileType.split(",");
         int n = fileTypes.length;

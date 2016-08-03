@@ -31,4 +31,6 @@ public class Views {
 
     public static final String INDEX_PAGE = PREFIX + "/index.jsp";
 
+    public static final String FEED_PAGE = PREFIX + "/feed.jsp";
+
 }

@@ -45,14 +45,18 @@ public abstract class BaseUseCaseServlet extends BaseHttpServlet {
         ApplicationContext applicationContext = WebApplicationContextUtils.getWebApplicationContext(servletConfig.getServletContext());
         geoStatService = applicationContext.getBean(GeoStatService.class);
         fileTypeService = applicationContext.getBean(FileTypeService.class);
+        liveFeedService = applicationContext.getBean(LiveFeedService.class);
     }
 
     public GeoStatService getGeoStatService() {
+
         return geoStatService;
     }
+
     public FileTypeService getFileTypeService() {
         return fileTypeService;
     }
+
     public LiveFeedService getLiveFeedService() {
         return liveFeedService;
     }

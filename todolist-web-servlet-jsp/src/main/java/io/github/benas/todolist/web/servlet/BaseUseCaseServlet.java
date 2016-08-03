@@ -26,6 +26,7 @@ package io.github.benas.todolist.web.servlet;
 
 import io.github.todolist.core.service.api.FileTypeService;
 import io.github.todolist.core.service.api.GeoStatService;
+import io.github.todolist.core.service.api.LiveFeedService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
@@ -36,6 +37,7 @@ public abstract class BaseUseCaseServlet extends BaseHttpServlet {
 
     private GeoStatService geoStatService;
     private FileTypeService fileTypeService;
+    private LiveFeedService liveFeedService;
 
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
@@ -50,5 +52,8 @@ public abstract class BaseUseCaseServlet extends BaseHttpServlet {
     }
     public FileTypeService getFileTypeService() {
         return fileTypeService;
+    }
+    public LiveFeedService getLiveFeedService() {
+        return liveFeedService;
     }
 }

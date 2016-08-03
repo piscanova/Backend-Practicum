@@ -34,8 +34,8 @@ public class PureRepositoryImpl {
     }
 
     public Pure getPureByDate (final String created_utc) {
-        TypedQuery<Pure> query = entityManager.createNamedQuery("getPureByIp", Pure.class);
-        query.setParameter("p_ip", created_utc);
+        TypedQuery<Pure> query = entityManager.createNamedQuery("getPureByDate", Pure.class);
+        query.setParameter("p_created_utc", created_utc);
         List<Pure> resultList = query.getResultList();
         return (resultList != null && !resultList.isEmpty()) ? resultList.get(0) : null;
     }
@@ -54,4 +54,20 @@ public class PureRepositoryImpl {
         return (resultList != null && !resultList.isEmpty()) ? resultList.get(0) : null;
     }
 
+    public Pure getPureByInfectionAndDate(final String infection, final Date date1) {
+        TypedQuery<Pure> query = entityManager.createNamedQuery("getPureByInfectionAndDate", Pure.class);
+        query.setParameter("p_infection", infection);
+        query.setParameter("p_created_utc", date1);
+        List<Pure> resultList = query.getResultList();
+        return (resultList != null && !resultList.isEmpty()) ? resultList.get(0) : null;
+    }
+
+    public Pure getPureByInfectionAndDateRange(final String infection, final Date date1, final Date date2) {
+        TypedQuery<Pure> query = entityManager.createNamedQuery("getPureByInfectionAndDateRange", Pure.class);
+        query.setParameter("p_infection", infection);
+        query.setParameter("p_created_utc", date1);
+        query.setParameter("p_created_utc", date2);
+        List<Pure> resultList = query.getResultList();
+        return (resultList != null && !resultList.isEmpty()) ? resultList.get(0) : null;
+    }
 }

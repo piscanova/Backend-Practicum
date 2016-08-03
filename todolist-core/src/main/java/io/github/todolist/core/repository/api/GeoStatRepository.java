@@ -3,6 +3,7 @@ package io.github.todolist.core.repository.api;
 import io.github.todolist.core.domain.GeoStat;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by thanksgiving on 7/25/16.
@@ -54,4 +55,12 @@ public interface GeoStatRepository {
      * @return
      */
     GeoStat getGeobeanByCountryCodeAndDate(final String countryCode, final Date date);
+
+    /**
+     * getGeobeanByCountryCodeAndDate.
+     * @return
+     */
+    List<GeoStat> getGeobeanByAllCountryCount();
+
+
 }

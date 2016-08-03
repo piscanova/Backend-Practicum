@@ -11,7 +11,9 @@ import java.util.Date;
         @NamedQuery(name = "getStateTotalCount", query = "SELECT g FROM GeoStat g WHERE g.state = :p_state"),
         @NamedQuery(name = "getCountryTotalCount", query = "SELECT g FROM GeoStat g WHERE g.country = :p_country AND g.date = :p_date"),
         @NamedQuery(name = "getCountryTotalCountByCode", query = "SELECT g FROM GeoStat g WHERE g.countryCode = :p_countryCode"),
-        @NamedQuery(name = "getCountryDayCountByCode", query = "SELECT g FROM GeoStat g WHERE g.countryCode = :p_countryCode AND g.date = :p_date")
+        @NamedQuery(name = "getCountryDayCountByCode", query = "SELECT g FROM GeoStat g WHERE g.countryCode = :p_countryCode AND g.date = :p_date"),
+
+        @NamedQuery(name = "getAllCountryTotalCountByCode", query = "SELECT distinct g.countryCode, g.countryTotalCount FROM GeoStat g")
 })
 public class GeoStat implements Serializable {
     @Id

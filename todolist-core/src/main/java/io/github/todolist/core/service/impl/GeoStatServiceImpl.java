@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by thanksgiving on 7/25/16.
  */
@@ -32,15 +34,19 @@ public class GeoStatServiceImpl implements GeoStatService {
         int n = countryCodes.length;
         long[] counts = new long[n];
         System.out.println("number of countries " + n);
-        for (int i = 0; i < n; i++) {
-            GeoStat geoStat = geoStatRepository.getGeobeanByCountryCode(countryCodes[i]);
-            if (geoStat != null) {
-                counts[i] = geoStat.getCountryTotalCount();
-            } else {
-                counts[i] = 0;
-            }
-            jsonObject.put(countryCodes[i], counts[i]);
-        }
+
+//        for (int i = 0; i < n; i++) {
+//            GeoStat geoStat = geoStatRepository.getGeobeanByCountryCode(countryCodes[i]);
+//            if (geoStat != null) {
+//                counts[i] = geoStat.getCountryTotalCount();
+//            } else {
+//                counts[i] = 0;
+//            }
+//            jsonObject.put(countryCodes[i], counts[i]);
+//        }
+
+        List<GeoStat> listOfGeoStat = geoStatRepository.getGeobeanByAllCountryCount();
+
         return jsonObject;
     }
 }

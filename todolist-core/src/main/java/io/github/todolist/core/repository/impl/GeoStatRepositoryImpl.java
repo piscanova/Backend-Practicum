@@ -70,4 +70,10 @@ public class GeoStatRepositoryImpl implements GeoStatRepository {
             System.out.println("result for " + countryCode + "is " + res.get(0).getCountryTotalCount());
         return (res != null && res.size() != 0) ? res.get(0) : null;
     }
+
+    public List<GeoStat> getGeobeanByAllCountryCount() {
+        TypedQuery<GeoStat> query = entityManager.createNamedQuery("getAllCountryTotalCountByCode", GeoStat.class);
+        List<GeoStat> res = query.getResultList();
+        return (res != null && res.size() != 0) ? res : null;
+    }
 }

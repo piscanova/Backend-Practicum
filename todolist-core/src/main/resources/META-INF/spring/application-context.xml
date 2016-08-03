@@ -16,6 +16,7 @@
     <bean id="todoRepository" class="io.github.todolist.core.repository.impl.TodoRepositoryImpl"/>
     <bean id="geoStatRepository" class="io.github.todolist.core.repository.impl.GeoStatRepositoryImpl"/>
     <bean id="fileTypeRepositry" class="io.github.todolist.core.repository.impl.FileTypeRepositoryImpl"/>
+    <bean id="infectionStatRepository" class="io.github.todolist.core.repository.impl.InfectionStatRepositoryImpl"/>
 
     <bean id="userService" class="io.github.todolist.core.service.impl.UserServiceImpl"/>
     <bean id="todoService" class="io.github.todolist.core.service.impl.TodoServiceImpl"/>

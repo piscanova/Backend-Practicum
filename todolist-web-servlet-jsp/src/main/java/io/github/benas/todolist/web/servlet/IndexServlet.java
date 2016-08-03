@@ -24,28 +24,27 @@
 
 package io.github.benas.todolist.web.servlet;
 
-import io.github.todolist.core.service.api.GeoStatService;
-import org.json.JSONObject;
-import org.springframework.context.ApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
+/**
+ * Servlet that controls the "index" page.
+ */
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 import static io.github.benas.todolist.web.util.Views.INDEX_PAGE;
 
-/**
- * Servlet that controls the "index" page.
- *
- * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
- */
-
 @WebServlet(name = "IndexServlet", urlPatterns = {"/", "/index"})
+public class IndexServlet extends BaseUseCaseServlet {
+    @Override
+    protected String performDoGet(HttpServletRequest request, HttpServletResponse response) {
+        request.setAttribute("indexTabStyle", "active");
+        System.out.println("Get json");
+        return INDEX_PAGE;
+    }
+}
+
+/*@WebServlet(name = "IndexServlet", urlPatterns = {"/", "/index"})
 public class IndexServlet extends HttpServlet {
     private GeoStatService geoStatService;
     @Override
@@ -59,7 +58,7 @@ public class IndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("indexTabStyle", "active");
 
-        JSONObject jsonObject = new JSONObject();
+*//*        JSONObject jsonObject = new JSONObject();
         jsonObject.put("HK", 100);
         jsonObject.put("PT", 3500);
         jsonObject.put("HN", 0);
@@ -69,8 +68,7 @@ public class IndexServlet extends HttpServlet {
         jsonObject.put("YE", 2);
         jsonObject.put("HU", 11178676);
         jsonObject.put("RU", 262648802);
-
-        request.setAttribute("malwareMap", jsonObject);
+        request.setAttribute("malwareMap", jsonObject);*//*
         System.out.println("Finish storing json");
         request.getRequestDispatcher(INDEX_PAGE).forward(request, response);
     }
@@ -84,4 +82,4 @@ public class IndexServlet extends HttpServlet {
         return geoStatService;
     }
 
-}
+}*/

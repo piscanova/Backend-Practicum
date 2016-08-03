@@ -18,8 +18,8 @@ import java.util.Date;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "getInfectionDayCount", query = "SELECT i FROM InfectionStat i WHERE i.date = :p_date AND i.infectionCount = :p_infectionCount"),
-        @NamedQuery(name = "getInfectionTotalCount", query = "SELECT i FROM InfectionStat i WHERE i.infectionCount = :p_infectionCount")
+        @NamedQuery(name = "getInfectionDayCount", query = "SELECT i FROM InfectionStat i WHERE i.date = :p_date AND i.infection = :p_infection"),
+        @NamedQuery(name = "getInfectionTotalCount", query = "SELECT i FROM InfectionStat i WHERE i.infection = :p_infection")
 })
 public class InfectionStat implements Serializable {
     @Id

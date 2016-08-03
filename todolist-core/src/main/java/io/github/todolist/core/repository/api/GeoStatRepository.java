@@ -60,7 +60,7 @@ public interface GeoStatRepository {
      * getGeobeanByCountryCodeAndDate.
      * @return
      */
-    List<GeoStat> getGeobeanByAllCountryCount();
+    List<Object[]> getGeobeanByAllCountryCount();
 
 
 }

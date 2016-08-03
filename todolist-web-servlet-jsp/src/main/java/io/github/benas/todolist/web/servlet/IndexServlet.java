@@ -28,6 +28,13 @@ package io.github.benas.todolist.web.servlet;
  * Servlet that controls the "index" page.
  */
 
+import io.github.todolist.core.service.api.GeoStatService;
+import org.json.JSONObject;
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,10 +43,24 @@ import static io.github.benas.todolist.web.util.Views.INDEX_PAGE;
 
 @WebServlet(name = "IndexServlet", urlPatterns = {"/", "/index"})
 public class IndexServlet extends BaseUseCaseServlet {
+    private GeoStatService geoStatService;
+
+    @Override
+    public void init(ServletConfig servletConfig) throws ServletException {
+        super.init(servletConfig);
+        ApplicationContext applicationContext = WebApplicationContextUtils.getWebApplicationContext(servletConfig.getServletContext());
+        geoStatService = applicationContext.getBean(GeoStatService.class);
+    }
+
+    public GeoStatService getGeoStatService() {
+        return geoStatService;
+    }
     @Override
     protected String performDoGet(HttpServletRequest request, HttpServletResponse response) {
         request.setAttribute("indexTabStyle", "active");
         System.out.println("Get json");
+        JSONObject jsonObject = getGeoStatService().getAllCountriesCounts();
+        request.setAttribute("malwareMap", jsonObject);
         return INDEX_PAGE;
     }
 }

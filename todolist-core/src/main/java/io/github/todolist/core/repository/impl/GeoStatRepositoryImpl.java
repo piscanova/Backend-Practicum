@@ -5,8 +5,8 @@ import io.github.todolist.core.repository.api.GeoStatRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.Date;
 import java.util.List;
@@ -71,9 +71,9 @@ public class GeoStatRepositoryImpl implements GeoStatRepository {
         return (res != null && res.size() != 0) ? res.get(0) : null;
     }
 
-    public List<GeoStat> getGeobeanByAllCountryCount() {
-        TypedQuery<GeoStat> query = entityManager.createNamedQuery("getAllCountryTotalCountByCode", GeoStat.class);
-        List<GeoStat> res = query.getResultList();
+    public List<Object[]> getGeobeanByAllCountryCount() {
+        Query query = entityManager.createNamedQuery("getAllCountryTotalCountByCode");
+        List<Object[]> res = query.getResultList();
         return (res != null && res.size() != 0) ? res : null;
     }
 }

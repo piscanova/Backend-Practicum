@@ -1,4 +1,4 @@
-package io.github.benas.todolist.web.servlet.geostat;
+package io.github.benas.todolist.web.servlet.usecase;
 
 import io.github.benas.todolist.web.servlet.BaseUseCaseServlet;
 import org.json.JSONObject;

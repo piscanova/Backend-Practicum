@@ -1,29 +1,34 @@
 package io.github.todolist.core.repository.api;
 
-import io.github.todolist.core.domain.GeoStat;
 import io.github.todolist.core.domain.Pure;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Zhijie Yang on 7/26/16.
  */
 public interface PureRepository {
-    Pure getPureBean(final long id);
-
     /**
      * get Pure data by file name from table Pure.
      * @param fileName
      * @return
      */
-    Pure getPureByFileName(final String fileName);
+    List<Pure> getPureByFileName(final String fileName, final int page);
 
     /**
      * getIp from table Pure.
      * @param ip
      * @return
      */
-    Pure getPureByIp(final String ip);
+    List<Pure> getPureByIp(final String ip, final int page);
+
+    /**
+     * get Pure by infection type from table Pure.
+     * @param infection
+     * @return
+     */
+    List<Pure> getPureByInfection(final String infection, final int page);
 
     /**
      * get protocol_id from table Pure.
@@ -46,12 +51,6 @@ public interface PureRepository {
      */
     Pure getPureByUserAgent(final String user_agent);
 
-    /**
-     * get Pure by infection type from table Pure.
-     * @param infection
-     * @return
-     */
-    Pure getPureByInfection(final String infection);
 
     /**
      * getIp from table Pure.
@@ -62,12 +61,7 @@ public interface PureRepository {
      */
     Pure getIpWithinDateRange(final String ip, final Date fromDate, final Date toDate);
 
-    /**
-     * getIp from table Pure.
-     * @param ip
-     * @param date
-     * @return
-     */
-    Pure getIpInDate(final String ip, final Date date);
+    Pure getPureByInfectionAndDate(final String infection, final Date date1);
 
+    Pure getPureByInfectionAndDateRange(final String infection, final Date date1, final Date date2);
 }

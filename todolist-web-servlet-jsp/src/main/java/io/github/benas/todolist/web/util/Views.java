@@ -21,7 +21,7 @@ public class Views {
 
     public static final String CREATE_TODO_PAGE = PREFIX + "/todo/create.jsp";
 
-    public static final String SEARCH_PAGE = PREFIX + "/todo/search.jsp";
+//    public static final String SEARCH_PAGE = PREFIX + "/todo/search.jsp";
 
     public static final String UPDATE_TODO_PAGE = PREFIX + "/todo/update.jsp";
 
@@ -31,6 +31,6 @@ public class Views {
 
     public static final String INDEX_PAGE = PREFIX + "/index.jsp";
 
-    public static final String FEED_PAGE = PREFIX + "/feed.jsp";
+    public static final String SEARCH_PAGE = PREFIX + "/search.jsp";
 
 }

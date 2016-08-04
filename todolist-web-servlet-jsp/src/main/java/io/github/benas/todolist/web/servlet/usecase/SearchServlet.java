@@ -36,8 +36,8 @@ public class SearchServlet extends BaseUseCaseServlet {
             request.setAttribute("error", "Input ip is not valid");
         } else {
             List<Pure> files = getPureService().getPureByIp(ip, page);
+            request.setAttribute("IpSearchResult", files);
         }
-//        request.setAttribute("IpSearchResult", );
 
         return Views.SEARCH_PAGE;
     }

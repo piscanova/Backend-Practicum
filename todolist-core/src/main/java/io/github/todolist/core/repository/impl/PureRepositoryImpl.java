@@ -26,21 +26,27 @@ public class PureRepositoryImpl implements PureRepository {
     public List<Pure> getPureByFileName(final String fileName, final int page) {
         TypedQuery<Pure> query = entityManager.createNamedQuery("getPureByFileName", Pure.class);
         query.setParameter("p_name", fileName);
-        List<Pure> resultList = query.getResultList().subList(entriesPerPage * page, entriesPerPage * (page + 1));
+        query.setFirstResult(entriesPerPage * page);
+        query.setMaxResults(entriesPerPage);
+        List<Pure> resultList = query.getResultList();
         return (resultList != null && !resultList.isEmpty()) ? resultList : null;
     }
 
     public List<Pure> getPureByInfection(final String infection, final int page) {
         TypedQuery<Pure> query = entityManager.createNamedQuery("getPureByInfection", Pure.class);
         query.setParameter("p_infection", infection);
-        List<Pure> resultList = query.getResultList().subList(entriesPerPage * page, entriesPerPage * (page + 1));
+        query.setFirstResult(entriesPerPage * page);
+        query.setMaxResults(entriesPerPage);
+        List<Pure> resultList = query.getResultList();
         return (resultList != null && !resultList.isEmpty()) ? resultList : null;
     }
 
     public List<Pure> getPureByIp(final String ip, final int page) {
         TypedQuery<Pure> query = entityManager.createNamedQuery("getPureByIp", Pure.class);
         query.setParameter("p_ip", ip);
-        List<Pure> resultList = query.getResultList().subList(entriesPerPage * page, entriesPerPage * (page + 1));
+        query.setFirstResult(entriesPerPage * page);
+        query.setMaxResults(entriesPerPage);
+        List<Pure> resultList = query.getResultList();
         return (resultList != null && !resultList.isEmpty()) ? resultList : null;
     }
 

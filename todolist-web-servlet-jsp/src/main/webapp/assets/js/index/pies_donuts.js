@@ -63,7 +63,7 @@ $(function () {
 
                 // Add title
                 title: {
-                    text: 'File Type Percentage (Top 5)',
+                    text: 'File Type Percentage (Top 6)',
                     // subtext: 'Open source information',
                     x: 'center'
                 },

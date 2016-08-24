@@ -16,6 +16,9 @@ import java.util.Date;
  +----------------+--------------+------+-----+---------+----------------+
  */
 
+/**
+ * Created by Zhijie on 7/25/16.
+ */
 @Entity
 @NamedQueries({
         @NamedQuery(name = "getInfectionDayCount", query = "SELECT i FROM InfectionStat i WHERE i.date = :p_date AND i.infection = :p_infection"),

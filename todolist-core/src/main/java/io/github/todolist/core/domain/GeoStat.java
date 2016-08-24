@@ -3,7 +3,9 @@ package io.github.todolist.core.domain;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-
+/**
+ * Created by Zhijie on 7/25/16.
+ */
 @Entity
 @NamedQueries({
         @NamedQuery(name = "getStateDayCount", query = "SELECT g FROM GeoStat g WHERE g.state = :p_state AND g.date = :p_date" ),
